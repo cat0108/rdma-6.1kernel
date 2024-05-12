@@ -96,8 +96,9 @@ static inline void inc_frontswap_invalidates(void) { }
  */
 int frontswap_register_ops(const struct frontswap_ops *ops)
 {
-	if (frontswap_ops)
-		return -EINVAL;
+	//this only enable one ops! diff from kernel 5.4
+	// if (frontswap_ops)
+	// 	return -EINVAL;
 
 	frontswap_ops = ops;
 	static_branch_inc(&frontswap_enabled_key);
