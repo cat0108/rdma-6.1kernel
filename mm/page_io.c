@@ -471,8 +471,9 @@ int swap_readpage(struct page *page, bool synchronous,
 	delayacct_swapin_start();
 
 	if (frontswap_load(page) == 0) {
-		SetPageUptodate(page);
-		unlock_page(page);
+		//this can be done in frontswap backend
+		// SetPageUptodate(page);
+		// unlock_page(page);
 		goto out;
 	}
 
